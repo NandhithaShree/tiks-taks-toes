@@ -1,0 +1,39 @@
+.start-page-but{
+    border-radius: 5%;
+    color:azure;
+    width:33.1%;
+    height:33.1vw;
+    padding:5px;
+  }
+  .start-page-but:hover{
+    background-color:rgb(192, 175, 152);
+  }
+  .right{
+    border-right: 10px solid black;
+  }
+  
+  .left{
+    border-left: 10px solid black;
+  }
+  
+  .top{
+    border-top: 10px solid black;
+  }
+  .bot{
+    border-bottom: 10px solid black;
+  }
+  #top-div{
+    background: #b14e82;
+    width:100%;
+    height:12vw;
+  }
+  h1{
+    padding-top: 3vw;
+    text-align: center;
+  }
+  #below-h1{
+    text-align: center;
+  }
+  body{
+    background-color: #b14e82;
+  }
