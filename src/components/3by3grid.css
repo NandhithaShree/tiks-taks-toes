@@ -18,6 +18,14 @@
     }
 }
 
+.but-to-xfn{
+    width:calc((70/3)*var(--gridlength));
+    height:calc((70/3)*var(--gridlength));
+    background-color: transparent;
+    border:0;
+
+}
+
 #grid-parent {
     border: 0px solid black;
     height: calc(70*var(--gridlength));
@@ -55,3 +63,4 @@
 .bottom{
     border-bottom: 2px solid black;
 }
+

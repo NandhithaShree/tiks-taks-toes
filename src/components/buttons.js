@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './buttons.css'
 import { useNavigate } from 'react-router-dom';
 
+export function setbigTurn() {
+    if (bigTurn == 0) {
+        bigTurn = 1;
+    }
+    else{
+        bigTurn = 0;
+    }
+}
 
+export var bigTurn = 1;  //0 is X, 1 is O. So first time a button is pressed, bigTurn becomes 0 and X plays.
 
 export default function ButtonFn() {
+
     const navigate = useNavigate();
 
     const goToNttk = () => {
