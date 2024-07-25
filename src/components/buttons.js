@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './buttons.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -15,8 +15,9 @@ export default function ButtonFn() {
             <div id="top-div">
                 <h1>Welcome to tiks-taks-toes</h1>
                 <p id="below-h1">A place that lets you play multiple variations of tik-tak-toe</p>
+                <p id="below-h1">Click one of the tik-tak-toes below to start playing on this giant tik-tak-toe grid</p>
             </div>
-            <div>
+            <div id="all-buts">
                 <div id="but-div">
                     <button onClick={goToNttk} class="start-page-but right bot" id="one-p">
                     </button>
