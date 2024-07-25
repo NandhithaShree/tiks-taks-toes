@@ -1,0 +1,57 @@
+:root {
+    --gridlength: 0vw;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media(max-width: 100vh) {
+    :root {
+        --gridlength: 1vw;
+    }
+}
+
+@media(min-width: 100vh) {
+    :root {
+        --gridlength: 1vh;
+    }
+}
+
+#grid-parent {
+    border: 0px solid black;
+    height: calc(70*var(--gridlength));
+    width: calc(70*var(--gridlength));
+    margin-top: calc((100vh - calc(70 * var(--gridlength))) / 2);
+    margin-bottom: calc((100vh - calc(70 * var(--gridlength))) / 2);
+    margin-left: calc((100vw - calc(70 * var(--gridlength))) / 2);
+    margin-right: calc((100vw - calc(70 * var(--gridlength))) / 2);
+}
+.row{
+    border: 0px solid black;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    width:calc((70)*var(--gridlength));
+    height:calc((70/3)*var(--gridlength));
+}
+
+.kid{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+    width:calc((70/3)*var(--gridlength));
+    height:calc((70/3)*var(--gridlength));
+}
+.left{
+    border-left: 2px solid black;
+}
+.top{
+    border-top: 2px solid black;
+}
+.right{
+    border-right: 2px solid black;
+}
+.bottom{
+    border-bottom: 2px solid black;
+}

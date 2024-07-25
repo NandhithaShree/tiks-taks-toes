@@ -1,17 +1,25 @@
+*{
+  box-sizing: content-box;
+}
 .start-page-but{
-    border-radius: 5%;
     color:azure;
-    width:33.1%;
-    height:33.1vw;
-    padding:5px;
+    width:33.2%;
+    height:33.2vw;
+    border:0px;
+    border-radius: 5%;
   }
   .start-page-but:hover{
     background-color:rgb(192, 175, 152);
   }
+ 
   .right{
-    border-right: 10px solid black;
+    border-right: 20px solid black;
   }
   
+  .bot{
+    border-bottom: 5px solid black;
+  }
+
   .left{
     border-left: 10px solid black;
   }
@@ -19,9 +27,7 @@
   .top{
     border-top: 10px solid black;
   }
-  .bot{
-    border-bottom: 10px solid black;
-  }
+  
   #top-div{
     background: #b14e82;
     width:100%;

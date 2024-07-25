@@ -1,9 +1,10 @@
 import React from 'react';
+import threebythreefn from './components/3by3grid';
 
 export default function Nttkfn(){
     
-    return(
-        <div>hello</div>
     
-    )
+    return(
+        threebythreefn()
+    );
 }
