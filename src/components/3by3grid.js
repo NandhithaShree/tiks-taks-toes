@@ -7,11 +7,11 @@ import { Helmet } from 'react-helmet';
 
 
 export default function Threebythreefn() {
-    let winner = null;
+    const [winner, setwinner] = useState(null);
     let list = [3, 4, 5, 6, 7, 8, 9, 10, 11];
     const newList = [3, 4, 5, 6, 7, 8, 9, 10, 11];
     const [isVisible, setIsVisible] = useState(false);
-    const Overlay = ({ OisVisible, Owinner }) => {
+    const Overlay = () => {
         if (!isVisible) return null;
 
         const overlayStyle = {
@@ -29,15 +29,18 @@ export default function Threebythreefn() {
             top: '50%',
             left: '50%',
         }
-
-        if (Owinner == 1) {
-            winner = "Player 2"
+        let Owinner;
+        if (winner == 1) {
+            Owinner = "Player 2"
         }
-        else {
-            winner = "Player 1"
+        else if(winner == -1){
+            Owinner = "Player 1"
+        }
+        else{
+            Owinner = "Nobody";
         }
         return <div style={overlayStyle}>
-            <text className='wintext'>{winner} won!</text>
+            <text className='wintext'>{Owinner} won!</text>
             <Reloadbutfn/>
         </div>;
     };
@@ -59,9 +62,12 @@ export default function Threebythreefn() {
                 (list[2] === list[4] && list[4] === list[6]) || // Diagonal from top-right to bottom-left
                 (list[0] === list[4] && list[4] === list[8])    // Diagonal from top-left to bottom-right
             ) {
-                winner = smallTurn;
+                setwinner(smallTurn);
                 console.log("theres a winner");
-                list = [...newList];
+                setIsVisible(true);
+            }
+            else if (IsDraw(list)){
+                setwinner(-2);
                 setIsVisible(true);
             }
             console.log(list[0], list[1], list[2], list[3], list[4], list[5], list[6], list[7], list[8])
@@ -75,7 +81,7 @@ export default function Threebythreefn() {
     }
     return (
         <div>
-            <Overlay OisVisible={isVisible} Owinner={winner}></Overlay>
+            <Overlay></Overlay>
             <div id="grid-parent">
                 <Helmet>
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,14 +112,20 @@ export default function Threebythreefn() {
 export function Reloadbutfn(){
     return(
         <div>
-            <button id="reload-but" onClick={() => window.location.reload()}>
-                RETRY
-            </button>
             <button id="gohome-but" onClick={() => window.history.back()}>
                 HOME
             </button>
         </div>
     )
+}
+
+function IsDraw(list){
+    for(let i = 0; i < 9; i++){
+        if(list[i] != 1 && list[i] != -1){
+            return false;
+        }
+    }
+    return true;
 }
 
 
