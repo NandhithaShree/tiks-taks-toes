@@ -6,7 +6,15 @@
     width:33.2%;
     height:33.2vw;
     border:0px;
-    border-radius: 5%;
+    border-radius: 5%; /*here*/
+    font-size: 18rem;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    color:black;
+    padding-bottom:3.5%;
+    padding-top:7%;
+    padding-left: 3.5%;
+    
   }
   .start-page-but:hover{
     background-color:rgb(192, 175, 152);

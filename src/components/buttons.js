@@ -1,27 +1,44 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './buttons.css'
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from './mycontext';
+import { Helmet } from 'react-helmet';
 
-export function setbigTurn() {
-    if (bigTurn == 0) {
-        bigTurn = 1;
-    }
-    else{
-        bigTurn = 0;
-    }
-}
 
-export var bigTurn = 1;  //0 is X, 1 is O. So first time a button is pressed, bigTurn becomes 0 and X plays.
-
+export var bigTurn = 1;  //1 is x, -1 is 0
 export default function ButtonFn() {
+     const { winner, setwinner } = useContext(MyContext);
+     const [bigbut, setbigbut] = useState({
+        a1: null, a2: null, a3: null,
+        b1: null, b2: null, b3: null,
+        c1: null, c2: null, c3: null
+    });
+    useEffect(() => {
+        const newBigbut = { ...bigbut };
 
+        // Update the state based on the winner
+        if (winner === 1) {
+            newBigbut.a1 = 'X';
+        } else if (winner === -1) {
+            newBigbut.a1 = 'O';
+        } else {
+            newBigbut.a1 = null;
+        }
+
+        setbigbut(newBigbut);
+    }, [winner]);
+  
     const navigate = useNavigate();
-
     const goToNttk = () => {
         navigate('/normal_tiktaktoe');
     };
     return (
         <div>
+            <Helmet>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+            </Helmet>
             <div id="top-div">
                 <h1>Welcome to tiks-taks-toes</h1>
                 <p id="below-h1">A place that lets you play multiple variations of tik-tak-toe</p>
@@ -30,6 +47,7 @@ export default function ButtonFn() {
             <div id="all-buts">
                 <div id="but-div">
                     <button onClick={goToNttk} class="start-page-but right bot" id="one-p">
+                        {bigbut.a1}
                     </button>
                     <button class="start-page-but left right bot" id="two-p">
                     </button>

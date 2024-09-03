@@ -1,13 +1,16 @@
 import React from 'react';
 import "./3by3grid.css"
 import Xfn from './thex';
-import { useState } from 'react';
+import { useState,useContext} from 'react';
 import { smallTurn } from './thex';
 import { Helmet } from 'react-helmet';
+import { MyContext } from './mycontext'
+
+
 
 
 export default function Threebythreefn() {
-    const [winner, setwinner] = useState(null);
+    const { winner, setwinner } = useContext(MyContext);
     let list = [3, 4, 5, 6, 7, 8, 9, 10, 11];
     const newList = [3, 4, 5, 6, 7, 8, 9, 10, 11];
     const [isVisible, setIsVisible] = useState(false);
