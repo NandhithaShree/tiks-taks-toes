@@ -21,8 +21,8 @@ export default function ButtonFn() {
             newBigbut.a1 = 'X';
         } else if (winner === -1) {
             newBigbut.a1 = 'O';
-        } else {
-            newBigbut.a1 = null;
+        } else if(winner === -2) {
+            newBigbut.a1 = 'N';
         }
 
         setbigbut(newBigbut);
@@ -31,6 +31,9 @@ export default function ButtonFn() {
     const navigate = useNavigate();
     const goToNttk = () => {
         navigate('/normal_tiktaktoe');
+    };
+    const goTo4by4 = () => {
+        navigate('/4by4');
     };
     return (
         <div>
@@ -49,7 +52,7 @@ export default function ButtonFn() {
                     <button onClick={goToNttk} class="start-page-but right bot" id="one-p">
                         {bigbut.a1}
                     </button>
-                    <button class="start-page-but left right bot" id="two-p">
+                    <button onClick={goTo4by4} class="start-page-but left right bot" id="two-p">
                     </button>
                     <button class="start-page-but left bot" id="three-p">
                     </button>
